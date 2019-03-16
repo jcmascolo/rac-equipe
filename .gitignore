@@ -1,2 +1,10 @@
-RacEquipe/obj
-RacEquipe/bin
+RacEquipe/obj/**
+RacEquipe/bin/**
+/obj/**
+RacEquipe/obj/Debug/netcoreapp2.2/project.razor.json
+RacEquipe/obj/Debug/netcoreapp2.2/RacEquipe.csprojAssemblyReference.cache
+RacEquipe/obj/Debug/netcoreapp2.2/RacEquipe.csproj.CoreCompileInputs.cache
+RacEquipe/obj/Debug/netcoreapp2.2/RacEquipe.assets.cache
+RacEquipe/obj/project.assets.json
+RacEquipe/obj/RacEquipe.csproj.nuget.g.props
+RacEquipe/obj/RacEquipe.csproj.nuget.cache
