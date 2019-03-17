@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RacEquipe.Models
 {
-    class ReservatioResponse
+    class ReservationResponse
     {
         public bool IsReserved { get; set; }
         public string ErrorMessage { get; set; }
