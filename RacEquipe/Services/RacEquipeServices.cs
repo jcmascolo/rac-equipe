@@ -42,13 +42,11 @@ namespace RacEquipe
             return reservationResponse;
         }
 
-        private static bool ValidateAvailability(ReservationRequest request, Task<List<Reservation>> reservations)
-        {
-            return reservations.Result
+        private bool ValidateAvailability(ReservationRequest request, Task<List<Reservation>> reservations) =>
+            reservations.Result
                 .Where(x => x.dateTo >= request.dateFrom)
                 .Where(x => x.dateFrom <= request.dateTo)
                 .Any();
-        }
 
         private async Task<List<Reservation>> GetReservations(ReservationRequest request) =>
             _racDataContext.Equipement
