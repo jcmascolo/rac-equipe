@@ -22,8 +22,8 @@ namespace RacEquipe
             {
                 var newReservation = new Reservation
                 {
-                    DateFrom = request.dateFrom,
-                    DateTo = request.dateTo,
+                    DateFrom = request.DateFrom,
+                    DateTo = request.DateTo,
                     Equipement = request.Equipement,
                     Utilisateur = request.Utilisateur
                 };
@@ -35,23 +35,23 @@ namespace RacEquipe
                 }
                 catch(Exception ex)
                 {
-                    reservationResponse.IsReverved = false;
+                    reservationResponse.IsReserved = false;
                     reservationResponse.ErrorMessage = ex.InnerException.ToString();
                 }
             }
-            return reservationResponse;
+            return reservationResponse.IsReserved;
         }
 
         private bool ValidateAvailability(ReservationRequest request, Task<List<Reservation>> reservations) =>
             reservations.Result
-                .Where(x => x.dateTo >= request.dateFrom)
-                .Where(x => x.dateFrom <= request.dateTo)
+                .Where(x => x.dateTo >= request.DateFrom)
+                .Where(x => x.dateFrom <= request.DateTo)
                 .Any();
 
         private async Task<List<Reservation>> GetReservations(ReservationRequest request) =>
             _racDataContext.Equipement
                 .Include(x => x.Reservation)
-                .Where(x => x.idEquipement == request.Equipement.idEquipement)
+                .Where(x => x.idEquipement == request.Equipement.EquipementId)
                 .Select(x => x.Reservations)
                 .ToListAsync();
         }
