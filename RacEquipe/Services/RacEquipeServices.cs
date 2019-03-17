@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace RacEquipe
         
         public async Task<bool> Reserver(ReservationRequest request)
         {
+            var reservationResponse = new ReservationResponse();
             var reservations = GetReservations(request);
             bool isAvailable = ValidateAvailability(request, reservations);
             if(isAvailable)
@@ -25,12 +27,19 @@ namespace RacEquipe
                     Equipement = request.Equipement,
                     Utilisateur = request.Utilisateur
                 };
-                _racDataContext.Reservation
-                    .Add(newReservation);
-                await _racDataContext.SaveChangesAsync();
-                return true;
+                try
+                {
+                    _racDataContext.Reservation
+                        .Add(newReservation);
+                    await _racDataContext.SaveChangesAsync();
+                }
+                catch(Exception ex)
+                {
+                    reservationResponse.IsReverved = false;
+                    reservationResponse.ErrorMessage = ex.InnerException.ToString();
+                }
             }
-            return false;
+            return reservationResponse;
         }
 
         private static bool ValidateAvailability(ReservationRequest request, Task<List<Reservation>> reservations)
