@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RacEquipe.Models
 {
-    class Reservation
+    public class Reservation
     {
         public int ReservationId { get; set; }
         public DateTime DateFrom { get; set; }
@@ -12,7 +12,7 @@ namespace RacEquipe.Models
         public int EquipementId { get; set; }
         public int UtilisateurId { get; set; }
 
-        public virtual Equipement Equipement { get; set; }
-        public virtual Utilisateur Utilisateur { get; set; }
+        public Equipement Equipement { get; set; }
+        public Utilisateur Utilisateur { get; set; }
     }
 }

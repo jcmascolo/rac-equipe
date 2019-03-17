@@ -12,6 +12,8 @@ namespace RacEquipe.Entity
         {
         }
 
-        public DbSet <Equipement> Equipement { get; set; }
+        public DbSet<Equipement> Equipement { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Utilisateur> Utilisateurs { get; set; }
     }
 }

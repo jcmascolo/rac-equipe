@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RacEquipe.Models
 {
-    class ReservationRequest
+    public class ReservationRequest
     {
         public Equipement Equipement { get; set; }
 

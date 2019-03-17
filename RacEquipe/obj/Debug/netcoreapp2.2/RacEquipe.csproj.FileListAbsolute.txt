@@ -28,8 +28,3 @@ c:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\RacEquipe.Views.pdb
 c:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\RacEquipe.dll
 c:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\RacEquipe.pdb
 C:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\RacEquipe.csproj.CopyComplete
-C:\git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Equipements\Create.g.cshtml.cs
-C:\git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Equipements\Delete.g.cshtml.cs
-C:\git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Equipements\Details.g.cshtml.cs
-C:\git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Equipements\Edit.g.cshtml.cs
-C:\git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Equipements\Index.g.cshtml.cs

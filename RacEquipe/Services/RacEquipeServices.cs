@@ -16,24 +16,18 @@ namespace RacEquipe
         public async Task<bool> Reserver(ReservationRequest request)
         {
             var reservationResponse = new ReservationResponse();
-            var reservations = GetReservations(request);
+            var reservations = await GetReservations(request);
             bool isAvailable = ValidateAvailability(request, reservations);
             if(isAvailable)
             {
-                var newReservation = new Reservation
-                {
-                    DateFrom = request.DateFrom,
-                    DateTo = request.DateTo,
-                    Equipement = request.Equipement,
-                    Utilisateur = request.Utilisateur
-                };
+                Reservation newReservation = CreateReservation(request);
                 try
                 {
-                    _racDataContext.Reservation
+                    _racDataContext.Reservations
                         .Add(newReservation);
                     await _racDataContext.SaveChangesAsync();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     reservationResponse.IsReserved = false;
                     reservationResponse.ErrorMessage = ex.InnerException.ToString();
@@ -42,18 +36,24 @@ namespace RacEquipe
             return reservationResponse.IsReserved;
         }
 
-        private bool ValidateAvailability(ReservationRequest request, Task<List<Reservation>> reservations) =>
-            reservations.Result
+        private Reservation CreateReservation(ReservationRequest request) =>
+            new Reservation
+            {
+                DateFrom = request.DateFrom,
+                DateTo = request.DateTo,
+                Equipement = request.Equipement,
+                Utilisateur = request.Utilisateur
+            };
+
+        private bool ValidateAvailability(ReservationRequest request, List<Reservation> reservations) =>
+            reservations
                 .Where(x => x.DateTo >= request.DateFrom)
                 .Where(x => x.DateFrom <= request.DateTo)
                 .Any();
 
         private async Task<List<Reservation>> GetReservations(ReservationRequest request) =>
-            _racDataContext.Equipement
-                .Include(x => x.Reservation)
-                .Where(x => x.idEquipement == request.Equipement.EquipementId)
-                .Select(x => x.Reservations)
-                .ToListAsync();
-        
+            await _racDataContext.Reservations
+                .Where(x => x.EquipementId == request.Equipement.EquipementId)
+                .ToListAsync();        
     }
 }
