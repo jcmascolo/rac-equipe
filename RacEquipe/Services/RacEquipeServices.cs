@@ -44,8 +44,8 @@ namespace RacEquipe
 
         private bool ValidateAvailability(ReservationRequest request, Task<List<Reservation>> reservations) =>
             reservations.Result
-                .Where(x => x.dateTo >= request.DateFrom)
-                .Where(x => x.dateFrom <= request.DateTo)
+                .Where(x => x.DateTo >= request.DateFrom)
+                .Where(x => x.DateFrom <= request.DateTo)
                 .Any();
 
         private async Task<List<Reservation>> GetReservations(ReservationRequest request) =>
@@ -54,6 +54,6 @@ namespace RacEquipe
                 .Where(x => x.idEquipement == request.Equipement.EquipementId)
                 .Select(x => x.Reservations)
                 .ToListAsync();
-        }
+        
     }
 }

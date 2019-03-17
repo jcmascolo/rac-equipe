@@ -11,5 +11,8 @@ namespace RacEquipe.Models
 
         public int EquipementId { get; set; }
         public int UtilisateurId { get; set; }
+
+        public virtual Equipement Equipement { get; set; }
+        public virtual Utilisateur Utilisateur { get; set; }
     }
 }
