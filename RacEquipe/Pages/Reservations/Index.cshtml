@@ -1,0 +1,54 @@
+@page
+@model RacEquipe.Pages.Reservations.IndexModel
+
+@{
+    ViewData["Title"] = "Réservations";
+}
+
+<h1>Réservations</h1>
+
+<p>
+    <a asp-page="Create">Créer réservation</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].DateFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].DateTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].Equipement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].Utilisateur)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Reservation) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Equipement.EquipementId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utilisateur.UtilisateurId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ReservationId">Modifier</a> |
+                <a asp-page="./Details" asp-route-id="@item.ReservationId">Détails</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ReservationId">Supprimer</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

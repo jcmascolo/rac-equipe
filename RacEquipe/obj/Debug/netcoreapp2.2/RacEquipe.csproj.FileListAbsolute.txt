@@ -16,7 +16,6 @@ c:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\RacEquipe.TagHelpers.output.
 c:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\RacEquipe.RazorCoreGenerate.cache
 c:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Error.g.cshtml.cs
 c:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Index.g.cshtml.cs
-c:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Privacy.g.cshtml.cs
 c:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Shared\_CookieConsentPartial.g.cshtml.cs
 c:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Shared\_Layout.g.cshtml.cs
 c:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Shared\_ValidationScriptsPartial.g.cshtml.cs
@@ -28,3 +27,18 @@ c:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\RacEquipe.Views.pdb
 c:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\RacEquipe.dll
 c:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\RacEquipe.pdb
 C:\Git\RAC-Equipe\RacEquipe\obj\Debug\netcoreapp2.2\RacEquipe.csproj.CopyComplete
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Equipements\Create.g.cshtml.cs
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Equipements\Delete.g.cshtml.cs
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Equipements\Details.g.cshtml.cs
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Equipements\Edit.g.cshtml.cs
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Equipements\Index.g.cshtml.cs
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Reservations\Create.g.cshtml.cs
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Reservations\Delete.g.cshtml.cs
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Reservations\Details.g.cshtml.cs
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Reservations\Edit.g.cshtml.cs
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Reservations\Index.g.cshtml.cs
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Utilisateurs\Create.g.cshtml.cs
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Utilisateurs\Delete.g.cshtml.cs
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Utilisateurs\Details.g.cshtml.cs
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Utilisateurs\Edit.g.cshtml.cs
+C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Utilisateurs\Index.g.cshtml.cs

@@ -1,0 +1,42 @@
+@page
+@model RacEquipe.Pages.Utilisateurs.IndexModel
+
+@{
+    ViewData["Title"] = "Utilisateurs";
+}
+
+<h1>Utilisateurs</h1>
+
+<p>
+    <a asp-page="Create">Créer nouvel utilisateur</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Utilisateur[0].Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Utilisateur[0].Prenom)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Utilisateur) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.UtilisateurId">Modifier</a> |
+                <a asp-page="./Details" asp-route-id="@item.UtilisateurId">Détails</a> |
+                <a asp-page="./Delete" asp-route-id="@item.UtilisateurId">Supprimer</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
