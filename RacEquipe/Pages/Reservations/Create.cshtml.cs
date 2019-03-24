@@ -43,8 +43,7 @@ namespace RacEquipe.Pages.Reservations
                 Equipement = equipement,
                 Utilisateur = utilisateur,
                 DateFrom = Reservation.DateFrom,
-                DateTo = Reservation.DateTo,
-                ReservationId = Reservation.ReservationId
+                DateTo = Reservation.DateTo
             };
             Reservation.ReservationCompletee = await _racEquipeServices.Reserver(reservationRequest);
             
@@ -52,10 +51,6 @@ namespace RacEquipe.Pages.Reservations
             {
                 return OnGet();
             }
-
-            _context.Reservations.Add(Reservation);
-            await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }

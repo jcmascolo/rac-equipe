@@ -35,7 +35,6 @@ C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Equipements\Inde
 C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Reservations\Create.g.cshtml.cs
 C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Reservations\Delete.g.cshtml.cs
 C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Reservations\Details.g.cshtml.cs
-C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Reservations\Edit.g.cshtml.cs
 C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Reservations\Index.g.cshtml.cs
 C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Utilisateurs\Create.g.cshtml.cs
 C:\Git\rac-equipe\RacEquipe\obj\Debug\netcoreapp2.2\Razor\Pages\Utilisateurs\Delete.g.cshtml.cs

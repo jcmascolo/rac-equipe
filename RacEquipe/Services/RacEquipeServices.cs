@@ -17,14 +17,15 @@ namespace RacEquipe
         {
             var reservationResponse = new ReservationResponse();
             var reservations = await GetReservations(request);
-            bool isAvailable = ValidateAvailability(request, reservations);
-            if(isAvailable)
+            bool hasReservation = ValidateAvailability(request, reservations);
+            if(hasReservation == false)
             {
                 Reservation newReservation = CreateReservation(request);
                 try
                 {
                     _racDataContext.Reservations
                         .Add(newReservation);
+                    reservationResponse.IsReserved = true;
                     await _racDataContext.SaveChangesAsync();
                 }
                 catch (Exception ex)
@@ -45,12 +46,13 @@ namespace RacEquipe
                 Utilisateur = request.Utilisateur
             };
 
-        private bool ValidateAvailability(ReservationRequest request, List<Reservation> reservations) =>
-            reservations
-                .Where(r => r.ReservationId != request.ReservationId)
-                .Where(x => x.DateTo <= request.DateFrom)
-                .Where(x => x.DateFrom >= request.DateTo)
-                .Any();
+        private bool ValidateAvailability(ReservationRequest request, List<Reservation> reservations)
+        {
+            var reservationList = reservations
+                .Where(x => x.DateTo >= request.DateFrom && x.DateFrom <= request.DateTo);
+            return reservationList.Any();
+        } 
+            
 
         private async Task<List<Reservation>> GetReservations(ReservationRequest request) =>
             await _racDataContext.Reservations
