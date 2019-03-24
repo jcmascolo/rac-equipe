@@ -11,6 +11,7 @@ namespace RacEquipe.Models
 
         public int EquipementId { get; set; }
         public int UtilisateurId { get; set; }
+        internal bool ReservationCompletee { get; set; }
 
         public Equipement Equipement { get; set; }
         public Utilisateur Utilisateur { get; set; }

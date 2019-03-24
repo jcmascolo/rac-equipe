@@ -13,16 +13,21 @@ namespace RacEquipe.Pages.Reservations
     public class CreateModel : PageModel
     {
         private readonly RacEquipe.Entity.RacDataContext _context;
+        private readonly RacEquipeServices _racEquipeServices;
 
         public CreateModel(RacEquipe.Entity.RacDataContext context)
         {
             _context = context;
+            _racEquipeServices = new RacEquipeServices(_context);
         }
 
         public IActionResult OnGet()
         {
-        ViewData["EquipementId"] = new SelectList(_context.Equipement, "EquipementId", "EquipementId");
-        ViewData["UtilisateurId"] = new SelectList(_context.Utilisateurs, "UtilisateurId", "UtilisateurId");
+            bool premierEssaie = Reservation == null ? true : false;
+
+            ViewData["EquipementId"] = new SelectList(_context.Equipement, "EquipementId", "EquipementId");
+            ViewData["UtilisateurId"] = new SelectList(_context.Utilisateurs, "UtilisateurId", "UtilisateurId");
+            ViewData["ReservationCompletee"] = premierEssaie ? premierEssaie : Reservation.ReservationCompletee;
             return Page();
         }
 
@@ -31,12 +36,21 @@ namespace RacEquipe.Pages.Reservations
 
         public async Task<IActionResult> OnPostAsync()
         {
-            IEnumerable<Reservation> reservations = _context.Reservations;
-            bool reservationPourMemePlageHoraire = Reservation.ReservationPourMemePlageHoraireExiste(reservations);
-            
-            if (!ModelState.IsValid || reservationPourMemePlageHoraire)
+            Equipement equipement = _context.Equipement.FirstOrDefault(e => e.EquipementId == Reservation.EquipementId);
+            Utilisateur utilisateur = _context.Utilisateurs.FirstOrDefault(u => u.UtilisateurId == Reservation.UtilisateurId);
+            ReservationRequest reservationRequest = new ReservationRequest 
             {
-                return Page();
+                Equipement = equipement,
+                Utilisateur = utilisateur,
+                DateFrom = Reservation.DateFrom,
+                DateTo = Reservation.DateTo,
+                ReservationId = Reservation.ReservationId
+            };
+            Reservation.ReservationCompletee = await _racEquipeServices.Reserver(reservationRequest);
+            
+            if (!ModelState.IsValid || !Reservation.ReservationCompletee)
+            {
+                return OnGet();
             }
 
             _context.Reservations.Add(Reservation);

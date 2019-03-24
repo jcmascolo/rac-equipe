@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using RacEquipe.Entity;
-using RacEquipe.Models;
 using System;
 using System.Linq;
 

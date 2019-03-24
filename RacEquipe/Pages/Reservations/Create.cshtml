@@ -35,6 +35,12 @@
                 <input type="submit" value="Créer" class="btn btn-primary" />
             </div>
         </form>
+        @if (!ViewBag.ReservationCompletee)
+        {
+            <div class="alert alert-danger" role="alert">
+                Cette plage horaire n'est pas disponible.
+            </div>
+        }
     </div>
 </div>
 
